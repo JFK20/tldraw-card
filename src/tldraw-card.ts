@@ -88,15 +88,9 @@ export class TldrawCard extends LitElement {
 
     return html`
       <ha-card
-        .header=${this.config.name}
-        @action=${this._handleAction}
-        .actionHandler=${actionHandler({
-          hasHold: hasAction(this.config.hold_action),
-          hasDoubleClick: hasAction(this.config.double_tap_action),
-        })}
-        tabindex="0"
-        .label=${`tldraw: ${this.config.entity || 'No Entity Defined'}`}
-      ></ha-card>
+        .header=${this.config.name}>
+        <div>Endlich Funktoniert es</div>
+      </ha-card>
     `;
   }
 
