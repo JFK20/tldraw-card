@@ -15,6 +15,8 @@ import type { TldrawCardConfig } from './types';
 import { actionHandler } from './action-handler-directive';
 import { CARD_VERSION } from './const';
 import { localize } from './localize/localize';
+import { Tldraw } from 'tldraw'
+import 'tldraw/tldraw.css'
 
 /* eslint no-console: 0 */
 console.info(
@@ -90,6 +92,7 @@ export class TldrawCard extends LitElement {
       <ha-card
         .header=${this.config.name}>
         <div>Endlich Funktoniert es</div>
+        <Tldraw />
       </ha-card>
     `;
   }
