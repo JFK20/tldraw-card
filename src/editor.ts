@@ -3,18 +3,18 @@ import { LitElement, html, TemplateResult, css, CSSResultGroup } from 'lit';
 import { HomeAssistant, fireEvent, LovelaceCardEditor } from 'custom-card-helpers';
 
 import { ScopedRegistryHost } from '@lit-labs/scoped-registry-mixin';
-import { BoilerplateCardConfig } from './types';
+import { TldrawCardConfig } from './types';
 import { customElement, property, state } from 'lit/decorators';
 import { formfieldDefinition } from '../elements/formfield';
 import { selectDefinition } from '../elements/select';
 import { switchDefinition } from '../elements/switch';
 import { textfieldDefinition } from '../elements/textfield';
 
-@customElement('boilerplate-card-editor')
-export class BoilerplateCardEditor extends ScopedRegistryHost(LitElement) implements LovelaceCardEditor {
+@customElement('tldraw-card-editor')
+export class TldrawCardEditor extends ScopedRegistryHost(LitElement) implements LovelaceCardEditor {
   @property({ attribute: false }) public hass?: HomeAssistant;
 
-  @state() private _config?: BoilerplateCardConfig;
+  @state() private _config?: TldrawCardConfig;
 
   @state() private _helpers?: any;
 
@@ -27,7 +27,7 @@ export class BoilerplateCardEditor extends ScopedRegistryHost(LitElement) implem
     ...formfieldDefinition,
   };
 
-  public setConfig(config: BoilerplateCardConfig): void {
+  public setConfig(config: TldrawCardConfig): void {
     this._config = config;
 
     this.loadCardHelpers();
@@ -144,9 +144,6 @@ export class BoilerplateCardEditor extends ScopedRegistryHost(LitElement) implem
     }
     mwc-formfield {
       padding-bottom: 8px;
-    }
-    mwc-switch {
-      --mdc-theme-secondary: var(--switch-checked-color);
     }
   `;
 }
