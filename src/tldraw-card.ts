@@ -15,7 +15,7 @@ import type { TldrawCardConfig } from './types';
 import { actionHandler } from './action-handler-directive';
 import { CARD_VERSION } from './const';
 import { localize } from './localize/localize';
-import { Tldraw } from 'tldraw'
+import { Tldraw } from 'tldraw';
 import 'tldraw/tldraw.css';
 
 /* eslint no-console: 0 */
@@ -89,13 +89,16 @@ export class TldrawCard extends LitElement {
     }
 
     return html`
-      <ha-card
-        .header=${this.config.name}>
+        <ha-card
+                .header=${this.config.name}xm lns="http://www.w3.org/1999/html">
         <div>Endlich Funktoniert es</div>
-        <div>
-          <Tldraw />
+        <div style={{position: 'fixed', inset: 0}}>
+          <Tldraw class="class-test" onMount={(editor) => {
+          editor.createShapes([{ id: 'shape:box1', type: 'text', x:100, y:100, props: { text: "ok" } },
+          ])
+            }}
+          />
         </div>
-        
       </ha-card>
     `;
   }
@@ -124,21 +127,28 @@ export class TldrawCard extends LitElement {
   // https://lit.dev/docs/components/styles/
   static get styles(): CSSResultGroup {
     return css`
-    ha-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-width: 400px;
-      min-height: 400px;
-    }
+      ha-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 400px;
+        min-height: 400px;
+      }
 
-    Tldraw {
-      width: 100%;
-      height: 100%;
-      min-width: 200px;
-      min-height: 200px;
-    }
-  `;
+      Tldraw {
+        width: 100%;
+        height: 100%;
+        min-width: 400px;
+        min-height: 400px;
+      }
+
+      .test-class {
+        width: 100%;
+        height: 100%;
+        min-width: 400px;
+        min-height: 400px;
+      }
+    `;
   }
 }
