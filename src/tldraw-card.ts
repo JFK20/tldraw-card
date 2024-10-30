@@ -92,7 +92,10 @@ export class TldrawCard extends LitElement {
       <ha-card
         .header=${this.config.name}>
         <div>Endlich Funktoniert es</div>
-        <Tldraw />
+        <div>
+          <Tldraw />
+        </div>
+        
       </ha-card>
     `;
   }

@@ -10,6 +10,7 @@ import { ignoreTextfieldFiles } from './elements/ignore/textfield';
 import { ignoreSelectFiles } from './elements/ignore/select';
 import { ignoreSwitchFiles } from './elements/ignore/switch';
 import postcss from 'rollup-plugin-postcss';
+import del from 'rollup-plugin-delete';
 
 const dev = process.env.ROLLUP_WATCH;
 
@@ -39,7 +40,8 @@ const plugins = [
   postcss({
     extract: true,
     minimize: true,
-  })
+  }),
+  del({ targets: 'dist/*' }),
 ];
 
 export default [
