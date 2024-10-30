@@ -9,6 +9,7 @@ import ignore from './rollup-plugins/ignore';
 import { ignoreTextfieldFiles } from './elements/ignore/textfield';
 import { ignoreSelectFiles } from './elements/ignore/select';
 import { ignoreSwitchFiles } from './elements/ignore/switch';
+import postcss from 'rollup-plugin-postcss';
 
 const dev = process.env.ROLLUP_WATCH;
 
@@ -35,6 +36,10 @@ const plugins = [
   ignore({
     files: [...ignoreTextfieldFiles, ...ignoreSelectFiles, ...ignoreSwitchFiles].map((file) => require.resolve(file)),
   }),
+  postcss({
+    extract: true,
+    minimize: true,
+  })
 ];
 
 export default [
