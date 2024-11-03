@@ -12,15 +12,13 @@ import {
 } from 'custom-card-helpers'; // This is a community maintained npm module with common helper functions/types. https://github.com/custom-cards/custom-card-helpers
 
 import type { TldrawCardConfig } from './types';
-import { actionHandler } from './action-handler-directive';
 import { CARD_VERSION } from './const';
-import { localize } from './localize/localize';
 import { Tldraw } from 'tldraw';
 import 'tldraw/tldraw.css';
 
 /* eslint no-console: 0 */
 console.info(
-  `%c  TLDRAW-CARD \n%c  ${localize('common.version')} ${CARD_VERSION}    `,
+  `%c  TLDRAW-CARD \n%c`,
   'color: orange; font-weight: bold; background: black',
   'color: white; font-weight: bold; background: dimgray',
 );
@@ -36,11 +34,6 @@ console.info(
 // TODO Name your custom element
 @customElement('tldraw-card')
 export class TldrawCard extends LitElement {
-  public static async getConfigElement(): Promise<LovelaceCardEditor> {
-    await import('./editor');
-    return document.createElement('tldraw-card-editor');
-  }
-
   public static getStubConfig(): Record<string, unknown> {
     return {};
   }
@@ -55,7 +48,7 @@ export class TldrawCard extends LitElement {
   public setConfig(config: TldrawCardConfig): void {
     // TODO Check for required fields and that they are of the proper format
     if (!config) {
-      throw new Error(localize('common.invalid_configuration'));
+      throw new Error("Invalid configuration");
     }
 
     if (config.test_gui) {
@@ -81,11 +74,11 @@ export class TldrawCard extends LitElement {
   protected render(): TemplateResult | void {
     // TODO Check for stateObj or other necessary things and render a warning if missing
     if (this.config.show_warning) {
-      return this._showWarning(localize('common.show_warning'));
+      return this._showWarning("Show warning");
     }
 
     if (this.config.show_error) {
-      return this._showError(localize('common.show_error'));
+      return this._showError("Show error");
     }
 
     return html`

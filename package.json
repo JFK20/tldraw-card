@@ -1,7 +1,8 @@
 {
-  "name": "boilerplate-card",
+  "name": "tldraw-card",
   "version": "1.4.1",
-  "description": "Lovelace boilerplate-card",
+  "type": "module",
+  "description": "Lovelace tldraw-card",
   "keywords": [
     "home-assistant",
     "homeassistant",
@@ -16,14 +17,6 @@
   "license": "MIT",
   "dependencies": {
     "@lit-labs/scoped-registry-mixin": "^1.0.3",
-    "@material/mwc-formfield": "^0.27.0",
-    "@material/mwc-list": "^0.27.0",
-    "@material/mwc-menu": "^0.27.0",
-    "@material/mwc-notched-outline": "^0.27.0",
-    "@material/mwc-ripple": "^0.27.0",
-    "@material/mwc-select": "^0.27.0",
-    "@material/mwc-switch": "^0.27.0",
-    "@material/mwc-textfield": "^0.27.0",
     "custom-card-helpers": "^1.9.0",
     "home-assistant-js-websocket": "^5.12.0",
     "lit": "^2.8.0",
@@ -31,20 +24,13 @@
     "tldraw": "^3.4.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/plugin-proposal-decorators": "^7.25.9",
-    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
     "prettier": "^2.8.8",
-    "rollup": "^2.79.2",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-delete": "^2.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-serve": "^1.1.1",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.31.2",
-    "typescript": "^4.9.5"
+    "rollup": "^4.8.0",
+    "rollup-plugin-ts": "^3.4.5",
+    "typescript": "^5.3.3"
   },
   "resolutions": {
     "lit": "^2.1.2",
@@ -53,8 +39,8 @@
     "@lit/reactive-element": "1.2.1"
   },
   "scripts": {
-    "start": "rollup -c rollup.config.dev.js --watch",
-    "build": "npm run rollup",
+    "start": "rollup -c rollup.config.js --watch",
+    "build": "npm run rollup --config rollup.config.js --bundleConfigAsCjs",
     "rollup": "rollup -c"
   }
 }
