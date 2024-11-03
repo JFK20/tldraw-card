@@ -85,15 +85,15 @@ export class TldrawCard extends LitElement {
         <ha-card
                 .header=${this.config.name}xm lns="http://www.w3.org/1999/html">
         <div>Endlich Funktoniert es</div>
-        <div style={{position: 'fixed', inset: 0}}>
-          <Tldraw class="class-test" onMount={(editor) => {
-          editor.createShapes([{ id: 'shape:box1', type: 'text', x:100, y:100, props: { text: "ok" } },
-          ])
-            }}
-          />
-        </div>
+          <div style="position: fixed; inset: 0;">
+            <Tldraw class="class-test" onMount=${(editor: any) => this._onMount(editor)} />
+          </div>
       </ha-card>
     `;
+  }
+
+  private _onMount(editor: any) {
+    editor.createShapes([{ id: 'shape:box1', type: 'text', x: 100, y: 100, props: { text: 'ok' } }]);
   }
 
   private _handleAction(ev: ActionHandlerEvent): void {

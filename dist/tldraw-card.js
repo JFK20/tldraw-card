@@ -2,15 +2,11 @@ function t(t,n,e,o){var r,i=arguments.length,a=i<3?n:null===o?o=Object.getOwnPro
         <ha-card
                 .header=${this.config.name}xm lns="http://www.w3.org/1999/html">
         <div>Endlich Funktoniert es</div>
-        <div style={{position: 'fixed', inset: 0}}>
-          <Tldraw class="class-test" onMount={(editor) => {
-          editor.createShapes([{ id: 'shape:box1', type: 'text', x:100, y:100, props: { text: "ok" } },
-          ])
-            }}
-          />
-        </div>
+          <div style="position: fixed; inset: 0;">
+            <Tldraw class="class-test" onMount=${t=>this._onMount(t)} />
+          </div>
       </ha-card>
-    `}_handleAction(t){this.hass&&this.config&&t.detail.action&&function(t,n,e,o){var r;"double_tap"===o&&e.double_tap_action?r=e.double_tap_action:"hold"===o&&e.hold_action?r=e.hold_action:"tap"===o&&e.tap_action&&(r=e.tap_action),Mt(t,n,e,r)}(this,this.hass,this.config,t.detail.action)}_showWarning(t){return L` <hui-warning>${t}</hui-warning> `}_showError(t){const n=document.createElement("hui-error-card");return n.setConfig({type:"error",error:t,origConfig:this.config}),L` ${n} `}static get styles(){return ct`
+    `}_onMount(t){t.createShapes([{id:"shape:box1",type:"text",x:100,y:100,props:{text:"ok"}}])}_handleAction(t){this.hass&&this.config&&t.detail.action&&function(t,n,e,o){var r;"double_tap"===o&&e.double_tap_action?r=e.double_tap_action:"hold"===o&&e.hold_action?r=e.hold_action:"tap"===o&&e.tap_action&&(r=e.tap_action),Mt(t,n,e,r)}(this,this.hass,this.config,t.detail.action)}_showWarning(t){return L` <hui-warning>${t}</hui-warning> `}_showError(t){const n=document.createElement("hui-error-card");return n.setConfig({type:"error",error:t,origConfig:this.config}),L` ${n} `}static get styles(){return ct`
       ha-card {
         display: flex;
         flex-direction: column;
