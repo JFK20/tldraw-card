@@ -84,7 +84,7 @@ export class TldrawCard extends LitElement {
     try {
       return html`
       <ha-card .header=${this.config.name}>
-        <div style="position: fixed; inset: 0;">
+        <div id="tldraw-wrapper">
           <Tldraw class="class-test" onMount=${(editor: any) => this._onMount(editor)} />
         </div>
       </ha-card>
