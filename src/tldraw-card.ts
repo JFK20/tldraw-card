@@ -84,8 +84,8 @@ export class TldrawCard extends LitElement {
     try {
       return html`
       <ha-card .header=${this.config.name}>
-        <div id="tldraw-wrapper">
-          <Tldraw class="class-test" onMount=${(editor: any) => this._onMount(editor)} />
+        <div id="tldraw-wrapper" style="position: relative; width: 100%; height: 100%;">
+          <Tldraw class="class-test" .onMount=${(editor: any) => this._onMount(editor)} />
         </div>
       </ha-card>
     `;
@@ -128,6 +128,13 @@ export class TldrawCard extends LitElement {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        min-width: 400px;
+        min-height: 400px;
+      }
+
+      #tldraw-wrapper {
+        width: 100%;
+        height: 100%;
         min-width: 400px;
         min-height: 400px;
       }
