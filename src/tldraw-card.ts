@@ -31,7 +31,6 @@ console.info(
   description: 'A template custom card for you to create something awesome',
 });
 
-// TODO Name your custom element
 @customElement('tldraw-card')
 export class TldrawCard extends LitElement {
   public static getStubConfig(): Record<string, unknown> {
@@ -72,14 +71,13 @@ export class TldrawCard extends LitElement {
 
   // https://lit.dev/docs/components/rendering/
   protected render(): TemplateResult | void {
-    // TODO Check for stateObj or other necessary things and render a warning if missing
-    if (this.config.show_warning) {
-      return this._showWarning("Show warning iwas mit config");
-    }
+    /*if (this.config.show_warning) {
+    return this._showWarning("Show warning iwas mit config");
+  }
 
-    if (this.config.show_error) {
-      return this._showError("Show error iwas mit config");
-    }
+  if (this.config.show_error) {
+  return this._showError("Show error iwas mit config");
+  }*/
 
     try {
       return html`
