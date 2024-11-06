@@ -56,7 +56,7 @@ export class TldrawCard extends LitElement {
     }
 
     this.config = {
-      name: 'tldraw',
+      name: 'tldraw-card-config',
       ...config,
     };
   }
@@ -74,22 +74,25 @@ export class TldrawCard extends LitElement {
   protected render(): TemplateResult | void {
     // TODO Check for stateObj or other necessary things and render a warning if missing
     if (this.config.show_warning) {
-      return this._showWarning("Show warning");
+      return this._showWarning("Show warning iwas mit config");
     }
 
     if (this.config.show_error) {
-      return this._showError("Show error");
+      return this._showError("Show error iwas mit config");
     }
 
-    return html`
-        <ha-card
-                .header=${this.config.name}xm lns="http://www.w3.org/1999/html">
-        <div>Endlich Funktoniert es</div>
-          <div style="position: fixed; inset: 0;">
-            <Tldraw class="class-test" onMount=${(editor: any) => this._onMount(editor)} />
-          </div>
+    try {
+      return html`
+      <ha-card .header=${this.config.name}>
+        <div style="position: fixed; inset: 0;">
+          <Tldraw class="class-test" onMount=${(editor: any) => this._onMount(editor)} />
+        </div>
       </ha-card>
     `;
+    } catch (error) {
+      console.error("Render error:", error);
+      return this._showError("Render error");
+    }
   }
 
   private _onMount(editor: any) {
